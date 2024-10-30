@@ -29,7 +29,6 @@ function App() {
   useEffect(() => {
     fetchCards();
   }, []);
-  console.log(cards);
   return (
     <div className="App">
       <Cards items={cards} isLoading={isLoading}></Cards>

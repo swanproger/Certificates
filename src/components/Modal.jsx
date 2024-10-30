@@ -32,7 +32,7 @@ export default function Modal({ open, setOpen, setBuyForm }) {
       {store.params.name}
       <p className="dialogText">Скидка:</p>
       {Math.round(store.params.discount)}%<p className="dialogText">Итого:</p>
-      {store.params.summa}
+      {Math.round(store.params.summa)} руб
       <br></br>
       <button className="dialogBtn" onClick={onChoose}>
         Перейти к оформлению

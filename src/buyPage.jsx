@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setHumanData } from "./store/SertificateSlice";
 import "./buyPage.css";
+import IMask from "imask";
 
 export default function ExecutionSertificate({ setBuyForm }) {
   const store = useSelector((store) => store.sertificate);
@@ -25,7 +26,12 @@ export default function ExecutionSertificate({ setBuyForm }) {
       setError(false);
     }
   };
-  console.log(store);
+  let elements = document.getElementsByClassName("phoneInput");
+  for (let i = 0; i < elements.length; i++) {
+    new IMask(elements[i], {
+      mask: "+{7}(000)000-00-00",
+    });
+  }
   return (
     <div className="buyPage">
       <div className="buyPage__content">
@@ -51,12 +57,13 @@ export default function ExecutionSertificate({ setBuyForm }) {
               border: error && !store.humanData.number ? "1px solid red" : null,
             }}
             type="tel"
-            placeholder=""
+            placeholder="+7(999)-999-99-99"
             inputMode="numeric"
             name="number"
-            className="reginput"
+            className="phoneInput"
             value={store.humanData.number}
             onChange={handleChange}
+            id="phoneInput"
           ></input>
           <span>Сообщение</span>
           <input
