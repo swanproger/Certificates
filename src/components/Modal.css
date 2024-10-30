@@ -1,0 +1,39 @@
+dialog {
+    position: relative;
+    width: 400px;
+    margin: 10rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.dialogText{
+    font-weight: Bold;
+}
+
+.closeBtn{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: 4px;
+    top: 4px;
+}
+.closeBtn:hover{
+    cursor: pointer;
+}
+
+.dialogBtn{
+height: 35px;
+border-radius: 10px;
+border: none;
+margin-top: 10px;
+width: 100%;
+font-weight: Bold;
+color: white;
+background-color: rgb(70, 100, 233);
+}
+
+.dialogBtn:hover{
+    cursor: pointer;
+}
