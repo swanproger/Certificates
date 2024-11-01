@@ -85,7 +85,24 @@ export default function BuyPage({ setBuyForm, setPlugFlag }) {
       mask: "+{7}(000)000-00-00",
     });
   }
-
+  console.log({
+    ApiKey: "011ba11bdcad4fa396660c2ec447ef14",
+    MethodName: "OSSale",
+    Id: store.selectedCert.id,
+    TableName: store.selectedCert.tableName,
+    PrimaryKey: store.selectedCert.primaryKey,
+    Price: store.selectedCert.price,
+    Summa: store.selectedCert.summa,
+    ClientName: store.humanData.name,
+    Phone: fomatNumber(store.humanData.phone),
+    Email: store.humanData.email,
+    PaymentTypeId: "2",
+    UseDelivery: "0",
+    IsGift: "0",
+    MsgText: store.humanData.message,
+    PName: "",
+    PPhone: "",
+  });
   return (
     <div className="buy-page">
       <div className="buy-page__content">

@@ -5,7 +5,7 @@ export const Card = ({
   name,
   discount,
   summa,
-  openModal,
+  openForm,
   price,
   primaryKey,
   tableName,
@@ -15,7 +15,7 @@ export const Card = ({
       className="card"
       id={id}
       onClick={() => {
-        openModal(name, discount, summa, id, price, primaryKey, tableName);
+        openForm(name, discount, summa, id, price, primaryKey, tableName);
       }}
     >
       <div className="card__sale">-{Math.round(discount)}%</div>
