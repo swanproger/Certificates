@@ -1,17 +1,8 @@
-import "./Modal.css";
+import "./style/Modal.css";
 import { useSelector } from "react-redux";
-import { useRef, useEffect } from "react";
 
-export default function Modal({ open, setOpen, setBuyForm }) {
-  const dialog = useRef();
-  const store = useSelector((store) => store.sertificate);
-  useEffect(() => {
-    if (open) {
-      dialog.current.showModal();
-    } else {
-      dialog.current.close();
-    }
-  }, [open]);
+export default function Modal({ setOpen, setBuyForm }) {
+  const store = useSelector((store) => store.certificates);
 
   function onChoose() {
     setOpen(false);
@@ -19,24 +10,25 @@ export default function Modal({ open, setOpen, setBuyForm }) {
   }
 
   return (
-    <dialog ref={dialog}>
+    <div className="modal-window">
       <img
         src="close.png"
         alt="кнопка закрыть"
-        className="closeBtn"
+        className="modal-window__btn__close"
         onClick={() => {
           setOpen(false);
         }}
       ></img>
-      <p className="dialogText">Выбранный сертификат:</p>
-      {store.params.name}
-      <p className="dialogText">Скидка:</p>
-      {Math.round(store.params.discount)}%<p className="dialogText">Итого:</p>
-      {Math.round(store.params.summa)} руб
+      <p className="modal-window__text">Выбранный сертификат:</p>
+      {store.selectedCert.name}
+      <p className="modal-window__text">Скидка:</p>
+      {Math.round(store.selectedCert.discount)}%
+      <p className="modal-window__text">Итого:</p>
+      {Math.round(store.selectedCert.summa)} руб
       <br></br>
-      <button className="dialogBtn" onClick={onChoose}>
+      <button className="modal-window__btn" onClick={onChoose}>
         Перейти к оформлению
       </button>
-    </dialog>
+    </div>
   );
 }

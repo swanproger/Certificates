@@ -1,0 +1,51 @@
+.card{
+    position: relative;
+    width: 380px;
+    height: 200px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom right, rgb(251, 251, 251), rgb(93, 202, 252))
+}
+.card:hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 850px) {
+   .card{
+    width: 100%;
+   }
+}
+
+.card__sale{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -20px;
+    top: -7px;
+    background-color: rgb(243, 71, 71);
+    width: 45px;
+    height: 17%;
+    border-radius: 15px;
+    font-size: 15px;
+    color: white;
+    font-weight: Bold;
+}
+
+.card__content{
+    margin: 10px 0px 0px 15px;
+}
+
+.card__content h2{
+    color: rgb(77, 136, 231);
+}
+
+.card__content span{
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    font-size: 30px;
+    color: rgb(46, 57, 124);
+    font-weight: Bold;
+}
+
+
+

@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sertificateReduser from "./SertificateSlice";
+import certificatesReduser from "./certificatesSlice";
 
 const store = configureStore({
   reducer: {
-    sertificate: sertificateReduser,
+    certificates: certificatesReduser,
   },
 });
 export default store;

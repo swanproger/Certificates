@@ -1,0 +1,26 @@
+h1{
+    align-items: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cards-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+@media screen and (max-width: 850px) {
+    .cards-container{
+    width: 100%;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 0 30px;
+    }
+}

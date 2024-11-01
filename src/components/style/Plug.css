@@ -1,0 +1,19 @@
+.plug__container{
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.plug__cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 380px;
+    height: 200px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom right, rgb(251, 251, 251), rgb(93, 202, 252));
+    color: rgb(77, 136, 231);
+    font-weight: Bold;
+    
+}

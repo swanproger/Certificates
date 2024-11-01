@@ -1,9 +1,10 @@
-import "./App.css";
 import { useEffect, useState, useCallback } from "react";
-import { Cards } from "./components";
+import { CardsContainer } from "./components/CardsContainer";
+import { useDispatch } from "react-redux";
+import { setCerts } from "./store/certificatesSlice";
 
 function App() {
-  const [cards, setCards] = useState([]);
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchCards = useCallback(async () => {
@@ -16,24 +17,37 @@ function App() {
         },
       }
     )
+      .then(async (res) => {
+        const certs = await res.json();
+        if (certs.result !== 0) {
+          alert("Ошибка сервера");
+
+          return null;
+        }
+
+        return certs.data;
+      })
+
       .catch((err) => {
         console.warn(err);
         alert("Ошибка при получении сертификатов");
-        return { error: "Ошибка", result: null };
+        return null;
       })
+
       .finally(() => setIsLoading(false));
-    const users = await response.json();
-    setCards(users.data);
+
+    if (!response) {
+      return;
+    }
+
+    dispatch(setCerts(response));
   }, []);
 
   useEffect(() => {
     fetchCards();
   }, []);
-  return (
-    <div className="App">
-      <Cards items={cards} isLoading={isLoading}></Cards>
-    </div>
-  );
+
+  return <CardsContainer isLoading={isLoading}></CardsContainer>;
 }
 
 export default App;
